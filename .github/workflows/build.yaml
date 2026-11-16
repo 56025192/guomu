@@ -104,8 +104,8 @@ jobs:
 
   build-ios:
     needs: validate
-    runs-on: macos-latest
-    timeout-minutes: 45
+    runs-on: macos-14
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
@@ -125,6 +125,7 @@ jobs:
     needs:
       - build-android
       - build-ios
+    if: ${{ always() && needs.build-android.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
