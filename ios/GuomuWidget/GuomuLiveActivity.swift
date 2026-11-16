@@ -95,7 +95,7 @@ struct GuomuLiveActivityWidget: Widget {
             .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
             let data = ActivityData(context: context)
-            DynamicIsland {
+            return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
                     CoverView(path: data.coverPath).frame(width: 46, height: 62)
                 }
