@@ -9,6 +9,7 @@ import '../widgets/hg_adaptive_sheet.dart';
 import '../widgets/hg_components.dart';
 import '../widgets/secure_cover.dart';
 import 'short_video_page.dart';
+import '../widgets/hg_pressable.dart';
 
 class DownloadsPage extends StatelessWidget {
   const DownloadsPage({super.key});
@@ -106,7 +107,7 @@ class _DownloadTile extends StatelessWidget {
       color: context.hgSurface,
       borderRadius: BorderRadius.circular(18),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
+      child: HgInkWell(
         onTap: onOpen,
         child: Padding(
           padding: const EdgeInsets.all(12),

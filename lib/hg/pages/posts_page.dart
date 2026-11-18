@@ -19,6 +19,7 @@ import '../widgets/hg_share_sheet.dart';
 import '../widgets/hg_video_controller.dart';
 import '../widgets/secure_cover.dart';
 import 'login_sheet.dart';
+import '../widgets/hg_pressable.dart';
 
 class PostsPage extends StatefulWidget {
   const PostsPage({super.key, this.showBack = true});
@@ -408,7 +409,7 @@ class _PostFeedCard extends StatelessWidget {
       color: context.hgSurface,
       borderRadius: BorderRadius.circular(13),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
+      child: HgInkWell(
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(11),
@@ -905,7 +906,7 @@ class _PostActionBar extends StatelessWidget {
                   color: context.hgSurfaceMuted,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: InkWell(
+                child: HgInkWell(
                   onTap: onComments,
                   child: const Align(
                     alignment: Alignment.centerLeft,
@@ -967,7 +968,7 @@ class _ActionIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return HgInkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -975,15 +976,10 @@ class _ActionIcon extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             AnimatedSwitcher(
-              duration: const Duration(milliseconds: 190),
-              switchInCurve: Curves.easeOutBack,
-              transitionBuilder: (child, animation) => FadeTransition(
-                opacity: animation,
-                child: ScaleTransition(
-                  scale: Tween<double>(begin: 0.72, end: 1).animate(animation),
-                  child: child,
-                ),
-              ),
+              duration: const Duration(milliseconds: 160),
+              switchInCurve: Curves.easeOut,
+              transitionBuilder: (child, animation) =>
+                  FadeTransition(opacity: animation, child: child),
               child: Icon(
                 icon,
                 key: ValueKey<IconData>(icon),
@@ -1426,8 +1422,7 @@ class _PostCommentsSheetState extends State<_PostCommentsSheet> {
   Widget build(BuildContext context) {
     final enabled = context.watch<AuthController>().isLoggedIn;
     final inset = MediaQuery.viewInsetsOf(context).bottom;
-    return AnimatedPadding(
-      duration: const Duration(milliseconds: 180),
+    return Padding(
       padding: EdgeInsets.only(bottom: inset),
       child: Container(
         decoration: BoxDecoration(

@@ -11,6 +11,7 @@ import '../widgets/hg_components.dart';
 import '../widgets/hg_refresh_indicator.dart';
 import '../widgets/secure_cover.dart';
 import 'creator_page.dart';
+import '../widgets/hg_pressable.dart';
 
 class MyFollowsPage extends StatefulWidget {
   const MyFollowsPage({super.key});
@@ -95,7 +96,7 @@ class _MyFollowsPageState extends State<MyFollowsPage> {
                     color: context.hgSurface,
                     borderRadius: BorderRadius.circular(13),
                     clipBehavior: Clip.antiAlias,
-                    child: InkWell(
+                    child: HgInkWell(
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute<void>(
                           builder: (_) => CreatorPage(userId: author.id),
@@ -346,7 +347,7 @@ class _MyMessagesPageState extends State<MyMessagesPage> {
                     color: context.hgSurface,
                     borderRadius: BorderRadius.circular(13),
                     clipBehavior: Clip.antiAlias,
-                    child: InkWell(
+                    child: HgInkWell(
                       onTap: () => _openMessage(message),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(14, 13, 6, 13),
@@ -564,7 +565,7 @@ class _MyFollowersPageState extends State<MyFollowersPage> {
                     color: context.hgSurface,
                     borderRadius: BorderRadius.circular(13),
                     clipBehavior: Clip.antiAlias,
-                    child: InkWell(
+                    child: HgInkWell(
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute<void>(
                           builder: (_) => CreatorPage(userId: author.id),

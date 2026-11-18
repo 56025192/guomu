@@ -25,6 +25,7 @@ import '../widgets/secure_cover.dart';
 import 'comments_sheet.dart';
 import 'episodes_sheet.dart';
 import 'login_sheet.dart';
+import '../widgets/hg_pressable.dart';
 
 class ShortVideoPage extends StatefulWidget {
   const ShortVideoPage({
@@ -1802,7 +1803,7 @@ class _WatchAllBar extends StatelessWidget {
       color: Colors.black.withValues(alpha: 0.48),
       borderRadius: BorderRadius.circular(10),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
+      child: HgInkWell(
         onTap: onTap,
         child: SizedBox(
           height: 44,
@@ -1885,7 +1886,7 @@ class _LandscapeEntry extends StatelessWidget {
       color: Colors.black.withValues(alpha: 0.48),
       borderRadius: BorderRadius.circular(22),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
+      child: HgInkWell(
         onTap: onTap,
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 9),
@@ -1936,18 +1937,10 @@ class _RailAction extends StatelessWidget {
               width: 43,
               height: 43,
               child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 190),
-                switchInCurve: Curves.easeOutBack,
-                transitionBuilder: (child, animation) => FadeTransition(
-                  opacity: animation,
-                  child: ScaleTransition(
-                    scale: Tween<double>(
-                      begin: 0.72,
-                      end: 1,
-                    ).animate(animation),
-                    child: child,
-                  ),
-                ),
+                duration: const Duration(milliseconds: 160),
+                switchInCurve: Curves.easeOut,
+                transitionBuilder: (child, animation) =>
+                    FadeTransition(opacity: animation, child: child),
                 child: Icon(
                   icon,
                   key: ValueKey<IconData>(icon),

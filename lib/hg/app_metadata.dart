@@ -1,17 +1,33 @@
 abstract final class HgAppMetadata {
-  static const String version = '1.4.5';
-  static const String buildNumber = '10';
-  static const String versionLabel = 'v1.4.5 (10)';
-  static const String releaseTitle = '播放器与 iOS 后台能力版';
+  static const String version = '1.4.6';
+  static const String buildNumber = '11';
+  static const String versionLabel = 'v1.4.6 (11)';
+  static const String releaseTitle = '原生手感与主题一致性版';
   static const List<String> releaseNotes = [
-    '视频进度条改用原生 Slider，扩大触控区域并优化拖动、点击与松手响应。',
-    '横屏视频在竖屏下使用纯黑背景，不再显示封面兜底，全屏入口移动到更容易触达的位置。',
-    'iOS 补齐实时活动、后台音频、后台刷新、锁屏媒体信息和 iPhone 横屏能力。',
-    'iOS 启动时自动申请通知权限，离开播放页后同步关闭系统播放状态。',
-    '移除评论区与半屏拖动条重合的下箭头。',
+    '列表与按钮增加轻微按压叠色反馈，去掉水波纹。',
+    'Android 预测性返回与系统转场；iOS 列表回弹与 Android 边缘指示恢复合理默认值。',
+    'Tab 与操作图标切换仅淡入，去掉弹簧缩放。',
+    '骨架加载色跟随深浅主题；半屏输入随键盘即时抬升。',
   ];
 
   static const List<HgReleaseRecord> releaseHistory = [
+    HgReleaseRecord(
+      version: 'v1.4.6',
+      buildNumber: '11',
+      date: '2026-11-18',
+      title: '原生手感与主题一致性版',
+      features: [],
+      improvements: [
+        '全站可点区域增加轻微按压叠色，交互更接近原生客户端。',
+        'Android 使用 PredictiveBack 页面转场并启用 OnBackInvokedCallback。',
+        '按平台区分滚动物理与边缘拉伸指示，iOS 列表恢复回弹。',
+        '底部 Tab、帖子与播放页图标状态切换仅淡入，移除 easeOutBack 缩放。',
+        '骨架屏渐变取自 ColorScheme，深色模式不再显示浅色占位块。',
+        '移除全局 textScaler 上限；评论回复文本改用 Text.rich 继承缩放。',
+        '半屏表单随 viewInsets 即时 padding，不再叠加 180ms AnimatedPadding。',
+      ],
+      fixes: [],
+    ),
     HgReleaseRecord(
       version: 'v1.4.5',
       buildNumber: '10',
