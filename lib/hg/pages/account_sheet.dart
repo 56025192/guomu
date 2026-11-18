@@ -8,6 +8,7 @@ import '../widgets/hg_adaptive_sheet.dart';
 import '../widgets/secure_cover.dart';
 import 'edit_profile_sheet.dart';
 import 'login_sheet.dart';
+import '../widgets/hg_pressable.dart';
 
 Future<void> showAccountSheet(BuildContext context) async {
   final auth = context.read<AuthController>();
@@ -139,7 +140,7 @@ class _AccountAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final effective = color ?? Theme.of(context).colorScheme.onSurface;
-    return InkWell(
+    return HgInkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 13, 18, 13),

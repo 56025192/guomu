@@ -12,6 +12,7 @@ import '../widgets/hg_adaptive_sheet.dart';
 import '../widgets/hg_components.dart';
 import '../widgets/secure_cover.dart';
 import 'login_sheet.dart';
+import '../widgets/hg_pressable.dart';
 
 Future<void> showCommentsSheet(
   BuildContext context, {
@@ -211,9 +212,7 @@ class _CommentsSheetState extends State<CommentsSheet> {
   Widget build(BuildContext context) {
     final auth = context.watch<AuthController>();
     final inset = MediaQuery.viewInsetsOf(context).bottom;
-    return AnimatedPadding(
-      duration: const Duration(milliseconds: 180),
-      curve: Curves.easeOutCubic,
+    return Padding(
       padding: EdgeInsets.only(bottom: inset),
       child: Container(
         decoration: BoxDecoration(
@@ -450,8 +449,8 @@ class _CommentRow extends StatelessWidget {
                         .map(
                           (reply) => Padding(
                             padding: const EdgeInsets.only(bottom: 6),
-                            child: RichText(
-                              text: TextSpan(
+                            child: Text.rich(
+                              TextSpan(
                                 style: TextStyle(
                                   color: context.hgOnSurface.withValues(
                                     alpha: 0.84,
@@ -548,7 +547,7 @@ class _CommentComposer extends StatelessWidget {
                       : HgColors.ink)
                 : context.hgSurfaceMuted,
             borderRadius: BorderRadius.circular(10),
-            child: InkWell(
+            child: HgInkWell(
               onTap: enabled ? onSend : onLogin,
               borderRadius: BorderRadius.circular(10),
               child: SizedBox(

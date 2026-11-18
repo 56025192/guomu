@@ -21,6 +21,7 @@ import 'downloads_page.dart';
 import 'login_sheet.dart';
 import 'update_history_page.dart';
 import 'update_sheet.dart';
+import '../widgets/hg_pressable.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -466,7 +467,7 @@ class _SettingsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return HgInkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(14, 12, 10, 12),
@@ -575,7 +576,7 @@ class _ThemeSheet extends StatelessWidget {
               Material(
                 color: context.hgSurfaceMuted,
                 borderRadius: BorderRadius.circular(14),
-                child: InkWell(
+                child: HgInkWell(
                   onTap: () async {
                     await controller.setMode(choice.$1);
                     if (context.mounted) Navigator.of(context).pop();
@@ -840,9 +841,7 @@ class _SourceEditorSheetState extends State<HgSourceEditorSheet> {
     final source = context.watch<SourceController>();
     final theme = Theme.of(context);
     final inset = MediaQuery.viewInsetsOf(context).bottom;
-    return AnimatedPadding(
-      duration: const Duration(milliseconds: 180),
-      curve: Curves.easeOutCubic,
+    return Padding(
       padding: EdgeInsets.only(bottom: inset),
       child: Container(
         decoration: BoxDecoration(
@@ -908,7 +907,7 @@ class _SourceEditorSheetState extends State<HgSourceEditorSheet> {
                         ? context.hgSurfaceHigh
                         : context.hgSurfaceMuted,
                     borderRadius: BorderRadius.circular(13),
-                    child: InkWell(
+                    child: HgInkWell(
                       onTap: () => _select(item),
                       borderRadius: BorderRadius.circular(13),
                       child: Padding(

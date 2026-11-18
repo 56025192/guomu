@@ -10,6 +10,7 @@ import '../widgets/hg_components.dart';
 import '../widgets/secure_cover.dart';
 import 'login_sheet.dart';
 import 'tag_feed_page.dart';
+import '../widgets/hg_pressable.dart';
 
 Future<int?> showPlayerInfoSheet(
   BuildContext context, {
@@ -221,7 +222,7 @@ class _SheetTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: InkWell(
+      child: HgInkWell(
         onTap: onTap,
         child: Stack(
           alignment: Alignment.center,
@@ -283,7 +284,7 @@ class _EpisodeGrid extends StatelessWidget {
               ? HgColors.orange.withValues(alpha: 0.14)
               : context.hgSurfaceMuted,
           borderRadius: BorderRadius.circular(8),
-          child: InkWell(
+          child: HgInkWell(
             onTap: () => Navigator.of(context).pop(episode.number),
             borderRadius: BorderRadius.circular(8),
             child: Center(

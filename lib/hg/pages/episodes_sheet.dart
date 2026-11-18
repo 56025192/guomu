@@ -11,6 +11,7 @@ import '../widgets/hg_components.dart';
 import '../widgets/secure_cover.dart';
 import 'login_sheet.dart';
 import 'tag_feed_page.dart';
+import '../widgets/hg_pressable.dart';
 
 Future<int?> showEpisodesSheet(
   BuildContext context, {
@@ -379,7 +380,7 @@ class _EpisodeCell extends StatelessWidget {
           : context.hgSurfaceMuted,
       borderRadius: BorderRadius.circular(9),
       clipBehavior: Clip.antiAlias,
-      child: InkWell(
+      child: HgInkWell(
         onTap: onTap,
         child: Center(
           child: Text(
